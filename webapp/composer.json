@@ -1,0 +1,14 @@
+{
+	"name" : "hfj/hoge",
+	"autoload" : {
+	     "psr-4" : {
+	          "UnitTest\\Sample\\" : "src/"
+	     }
+	},
+	"require" : {
+
+	} ,
+	"require-dev" : {
+		"codeception/codeception" : "2.3"
+	}
+}

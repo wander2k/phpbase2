@@ -1,0 +1,58 @@
+version: '2'
+services:
+  web:
+    build: ./webapp
+    ports:
+      - "8000:80"
+      - "3000:3000"
+    environment:
+     - MYSQL_SERVER=mysql
+    depends_on:
+      - memcached
+      - mysql
+      - selenium-chrome
+      - selenium-chrome-debug
+    volumes:
+      - /C/Users/G6003/phpbase2/webapp/:/var/www/html/
+
+  memcached:
+    image: memcached
+
+  mysql:
+    build: ./mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+    volumes:
+      - /C/Users/G6003/phpbase2/mysql/storage:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=mysql
+      - PMA_USER=root
+      - PMA_PASSWORD=password
+    depends_on:
+      - mysql
+    ports:
+       - 8880:80
+    volumes:
+       - /sessions
+   
+  selenium-chrome:
+    image: selenium/standalone-chrome:3.4.0-chromium
+    ports:
+      - "4444:4444"
+    volumes:
+      - /dev/shm:/dev/shm
+      
+  selenium-chrome-debug:
+    image: selenium/standalone-chrome-debug:3.4.0-chromium
+    ports:
+      - "4445:4444"
+      - "5900:5900"
+    volumes:
+      - /dev/shm:/dev/shm
+      
