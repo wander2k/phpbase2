@@ -12,6 +12,8 @@ RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - \
       libmysqlclient-dev \
       ruby-full \
       nodejs \
+      default-jdk \
+      openssh-server \
     && rm -r /var/lib/apt/lists/* \
     && docker-php-ext-configure pdo_mysql --with-pdo-mysql=mysqlnd \
     && docker-php-ext-install \
@@ -45,6 +47,19 @@ RUN curl -fsSL 'https://xdebug.org/files/xdebug-2.4.0.tgz' -o xdebug.tar.gz \
     && docker-php-ext-enable xdebug
 
 ADD . /var/www/html/
+
+
+EXPOSE 22
+
+RUN groupadd jenkins && useradd -d /home/jenkins -g jenkins -m jenkins
+
+RUN mkdir /home/jenkins/.ssh
+COPY files/jenkins_pub /home/jenkins/.ssh/authorized_keys
+RUN chown -R jenkins:jenkins /home/jenkins/.ssh \
+ && chmod 700 /home/jenkins/.ssh \
+ && chmod 600 /home/jenkins/.ssh/*
+ 
 WORKDIR /var/www/html/
+
 #Install phpunit
 #RUN composer install

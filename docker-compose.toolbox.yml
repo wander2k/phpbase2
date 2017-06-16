@@ -5,6 +5,7 @@ services:
     ports:
       - "8000:80"
       - "3000:3000"
+      - "222:22"
     environment:
      - MYSQL_SERVER=mysql
     depends_on:
