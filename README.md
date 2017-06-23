@@ -1,5 +1,5 @@
 # phpbase2
-
+# The following instruction works only in Windows 7!!
 ## 0. Preparation
 ### a. Install docker toolbox
 ### b. In virtualbox, share folder "C:\" as "/C" (Let docker container could use host folder.)
