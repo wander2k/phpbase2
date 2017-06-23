@@ -1,2 +1,5 @@
 /mysql/storage
 /webapp/vendor
+/webapp/tests/_output
+/webapp/tests/_support
+/webapp/tests/_data

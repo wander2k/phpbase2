@@ -1,11 +1,8 @@
 <?php
+  class Hoge {  
+    public function doSum($a, $b) {
+      return $a + $b;
+    }
+  }
 
-namespace UnitTest¥Sample {
-  protected $settings = null;
-
-  public function __construct (
-     $settings
-   ) {
-     $this->settings = $settings;
-   }
-}
+?>

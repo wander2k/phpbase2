@@ -12,5 +12,5 @@ modules:
             port: 4444
             url: http://web/src/
             browser: chrome
-            wait: 10
+            wait: 1
         - \Helper\Acceptance
