@@ -3,7 +3,7 @@
 ## 1. Start Docker Quickstart Terminal
 
 ## 2. Build and start containers
-[^1]Go to {path_to_project}
+\# Go to {path_to_project}
 bin/start_on_toolbox.sh
 
 ## 3. Import test data into db
