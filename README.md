@@ -4,6 +4,7 @@
 
 ## 2. Build and start containers
 \# Go to {path_to_project}
+
 bin/start_on_toolbox.sh
 
 ## 3. Import test data into db
