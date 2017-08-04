@@ -3,9 +3,9 @@ services:
   web:
     build: ./webapp
     ports:
-      - "8000:80"
-      - "3000:3000"
-      - "222:22"
+      - "80"
+      - "3000"
+      - "22"
     environment:
      - MYSQL_SERVER=mysql
     depends_on:
@@ -22,7 +22,7 @@ services:
   mysql:
     build: ./mysql
     ports:
-      - "3306:3306"
+      - "3306"
     environment:
       - MYSQL_ROOT_PASSWORD=password
     volumes:
@@ -38,21 +38,21 @@ services:
     depends_on:
       - mysql
     ports:
-       - 8880:80
+       - 80
     volumes:
        - /sessions
 
   selenium-chrome:
     image: selenium/standalone-chrome:3.4.0-chromium
     ports:
-      - "4444:4444"
+      - "4444"
     volumes:
       - /dev/shm:/dev/shm
       
   selenium-chrome-debug:
     image: selenium/standalone-chrome-debug:3.4.0-chromium
     ports:
-      - "4445:4444"
-      - "5900:5900"
+      - "4444"
+      - "5900"
     volumes:
       - /dev/shm:/dev/shm
