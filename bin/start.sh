@@ -1,3 +1,3 @@
-docker-compose -f build
-docker-compose -f up -d
+docker-compose build
+docker-compose up -d
 docker-compose ps
