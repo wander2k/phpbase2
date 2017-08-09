@@ -1,3 +1,3 @@
-docker exec -i phpbase2_web_1 /bin/bash /var/www/html/bin/init.sh
+docker-compose exec web /bin/bash /var/www/html/bin/init.sh
 
-docker exec -i phpbase2_web_1 /bin/bash /var/www/html/bin/test.sh
+docker-compose exec web /bin/bash /var/www/html/bin/test.sh
